@@ -18,17 +18,20 @@ class Hoover {
   }
 
   processRoom(input) {
-    let roomArrays = []
     let array = input.split('\r\n')
-    let roomSize = array[0].split(' ').map(Number)
-    let roomArrayLength = new Array(roomSize[0])
-
-    for (var i = 0; i < roomSize[1]; i++) {
-      roomArrays[i] = roomArrayLength
-    }
-    this.room = roomArrays.fill(0)
+    this.room = (new Array(parseInt(array[0][0])).fill(0)).map(x => new Array(parseInt(array[0][2])).fill(0))
   }
 
+  processDirtLoc(input) {
+    let splitArray = input.split('\r\n')
+    if (splitArray.length > 3) {
+      splitArray.pop()
+      let locations = splitArray.slice(2)
+      let room = this.room
+      let dirtLocations = locations.map(item => item.split(' ').map(Number))
+      dirtLocations.forEach(element => room[element[1]][element[0]] = 1)
 
-
+      this.room = room
+    }
+  }
 }

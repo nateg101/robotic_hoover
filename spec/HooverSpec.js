@@ -20,7 +20,15 @@ describe("Hoover", function() {
 
     it("accepts the input and returns 5 arrays of length 5", function() {
       hoover.processRoom('5 5\r\n1 2\r\n1 0\r\n2 2\r\n2 3\r\nNNESEESWNWW');
-      expect(hoover.room).toEqual([0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0])
+      expect(hoover.room).toEqual([[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]])
+    })
+
+    it("accepts the input and places a 1 in the correct position in the room matrix", function() {
+      let input = '5 5\r\n1 2\r\n1 0\r\n2 2\r\n2 3\r\nNNESEESWNWW'
+      hoover.processRoom(input)
+      hoover.processDirtLoc(input);
+
+      expect(hoover.room).toEqual([[0,1,0,0,0],[0,0,0,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,0,0,0]])
     })
   })
 })
