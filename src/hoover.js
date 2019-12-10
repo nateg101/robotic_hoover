@@ -3,9 +3,8 @@ class Hoover {
   constructor() {
     this.hooverInstructions
     this.startCoords
-    this.room
-    this.xCoords
-    this.yCoords
+    this.dirtCleaned = 0
+    this.room = []
   }
 
   processInstructions(input) {
@@ -19,10 +18,15 @@ class Hoover {
   }
 
   processRoom(input) {
+    let roomArrays = []
     let array = input.split('\r\n')
-    let roomArray = array[0].split(' ').map(Number)
-    this.xCoords = roomArray[0]
-    this.yCoords = roomArray[1]
+    let roomSize = array[0].split(' ').map(Number)
+    let roomArrayLength = new Array(roomSize[0])
+
+    for (var i = 0; i < roomSize[1]; i++) {
+      roomArrays[i] = roomArrayLength
+    }
+    this.room = roomArrays.fill(0)
   }
 
 

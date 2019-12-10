@@ -18,10 +18,9 @@ describe("Hoover", function() {
       expect(hoover.startCoords[1]).toEqual(2);
     })
 
-    it("accepts the input and returns the x & y dimensions", function() {
+    it("accepts the input and returns 5 arrays of length 5", function() {
       hoover.processRoom('5 5\r\n1 2\r\n1 0\r\n2 2\r\n2 3\r\nNNESEESWNWW');
-      expect(hoover.xCoords).toEqual(5)
-      expect(hoover.yCoords).toEqual(5)
+      expect(hoover.room).toEqual([0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0])
     })
   })
 })
