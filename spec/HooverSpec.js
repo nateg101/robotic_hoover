@@ -31,4 +31,16 @@ describe("Hoover", function() {
       expect(hoover.room).toEqual([[0,1,0,0,0],[0,0,0,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,0,0,0]])
     })
   })
+
+  describe("producing the readout", function() {
+    it('should produce the readout in the correct format', function() {
+      let input = '5 5\r\n1 2\r\n1 0\r\n2 2\r\n2 3\r\nNNESEESWNWW'
+      hoover.processInstructions(input)
+      hoover.processCoords(input)
+      hoover.processRoom(input)
+      hoover.processDirtLoc(input)
+
+      expect(hoover.produceReadout()).toEqual('1 3\r\n1')
+    })
+  })
 })

@@ -34,4 +34,45 @@ class Hoover {
       this.room = room
     }
   }
+
+  produceReadout() {
+    let instructions = this.hooverInstructions
+    let position = this.startCoords
+    let room = this.room
+    let amountCleaned = this.dirtCleaned
+
+    for(var i = 0; i < instructions.length; i++) {
+      let directions = instructions[i]
+      if (directions === "N") {
+        if (position[1] !== (room[0].length -1)) {
+          position[1]++
+        }
+        cleanDirt()
+      } else if (directions === "S") {
+        if (position[1] !== 0) {
+          position[1]--
+        }
+        cleanDirt()
+      } else if (directions === "E") {
+        if (position[0] !== (room.length -1)) {
+          position[0]++
+        }
+        cleanDirt()
+      } else if (directions === "W") {
+        if (position[0] !== 0) {
+          position[0]--
+        }
+        cleanDirt()
+      }
+    }
+    return position.join(' ') + '\r\n' + amountCleaned
+
+    function cleanDirt() {
+      if (room[position[1]][position[0]] === 1) {
+        amountCleaned++
+        room[position[1]][position[0]] = 0
+      }
+    }
+
+  }
 }
