@@ -1,6 +1,15 @@
 # Robotic Hoover
 
 
+### Usage
+
+1. Clone the repo by running `$ git clone repo_name`
+
+2. To run test suite - paste the full path of `SpecRunner.html` to run the Jasmine test suite.
+
+3. Editing input - Input, as specified below is stored in the input.txt file.
+
+
 ### Example Input
 
 ```
